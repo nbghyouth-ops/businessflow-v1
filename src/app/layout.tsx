@@ -1,0 +1,25 @@
+import type { Metadata, Viewport } from "next";
+import type { ReactNode } from "react";
+import { DownloadProgressProvider } from "@/components/download-loader";
+import "./globals.css";
+
+export const metadata: Metadata = {
+  title: "Business Flow",
+  description: "Platform pengelolaan bisnis terpadu: keuangan, penjualan, stok, klien, dan operasional.",
+};
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#141518",
+};
+
+export default function RootLayout({ children }: { children: ReactNode }) {
+  return (
+    <html lang="id">
+      <body>
+        <DownloadProgressProvider>{children}</DownloadProgressProvider>
+      </body>
+    </html>
+  );
+}

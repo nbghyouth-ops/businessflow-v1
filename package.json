@@ -1,0 +1,61 @@
+{
+  "name": "business-flow",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build --webpack",
+    "start": "next start",
+    "lint": "eslint . --max-warnings=0",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run tests/unit",
+    "test:integration": "vitest run tests/integration",
+    "test:e2e": "playwright test",
+    "db:migrate": "node scripts/migrate.mjs",
+    "db:bundle": "node scripts/bundle-sql.mjs",
+    "db:check": "node scripts/preflight.mjs",
+    "smoke": "node scripts/smoke-api.mjs",
+    "postinstall": "node scripts/fix-drizzle-types.mjs",
+    "verify": "npm run typecheck && npm run lint && npm test && npm run build && npm audit --omit=dev"
+  },
+  "dependencies": {
+    "@capacitor/android": "8.6.0",
+    "@capacitor/app": "8.1.2",
+    "@capacitor/cli": "8.6.0",
+    "@capacitor/core": "8.6.0",
+    "@node-rs/argon2": "2.2.2",
+    "dotenv": "17.3.1",
+    "drizzle-orm": "0.45.2",
+    "exceljs": "4.4.0",
+    "jspdf": "^4.2.1",
+    "next": "16.4.6",
+    "pg": "8.20.0",
+    "react": "19.2.6",
+    "react-dom": "19.2.6",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.10.2",
+    "@playwright/test": "^1.55.1",
+    "@tailwindcss/postcss": "4.1.17",
+    "@types/node": "22.19.15",
+    "@types/pg": "8.18.0",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "drizzle-kit": "0.31.10",
+    "eslint": "9.39.4",
+    "eslint-config-next": "16.4.6",
+    "postcss": "8.5.33",
+    "tailwindcss": "4.1.17",
+    "typescript": "5.9.3",
+    "vitest": "5.1.0"
+  },
+  "overrides": {
+    "postcss": "8.5.33",
+    "dompurify": "3.4.17",
+    "uuid": "^11.1.1"
+  }
+}
